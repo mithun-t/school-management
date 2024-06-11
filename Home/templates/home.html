@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if not user.is_staff %}
+    <h1>Welcome Student</h1>
+    <ul>
+   <li><a href="/edit_student/">Edit Profile</a></li> 
+   <li><a href="/view_teachers_by_dep/{{department.id}}">View teachers</a></li> 
+</ul>
+    {% endif %}
+
+    {% if  user.is_staff and not user.is_superuser %}
+    <h1>Welcome Teacher</h1>
+    <ul>
+   <li><a href="/edit_teacher/">Edit Profile</a></li> 
+   <li><a href="/view_students_by_dep/{{department.id}}">View student</a></li>
+</ul>
+
+    {% endif %}
+
+    {% if user.is_superuser %}
+    <h1>Welcome Admin</h1>
+    <ul>
+        <li><a href="/add_dep/">Add department</a></li>
+        <li><a href="/dep_view/">View department</a></li>
+        <li><a href="/add_student/">Add student</a></li>
+        <li><a href="/view_students/">View student</a></li>
+        <li><a href="/add_teacher/">Add teacher</a></li>
+        <li><a href="/teacher_view/">View teacher</a></li>
+    </ul>
+    {% endif %}
+    <ul>
+        <li><a href="/">Logout</a></li>
+    </ul>
+</body>
+</html>

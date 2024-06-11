@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View teachers</title>
+</head>
+<body>
+    <h1>Teachers</h1>
+    <table border="1px" width="50%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Qualification</th>
+                <th>Department</th>
+                <th>Phone Number</th>
+                <th>Age</th>
+                <th>Address</th>
+                {% if user.is_staff %}
+                <th>Actions</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.first_name }}</td>
+                <td>{{ teacher.last_name }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.qualification }}</td>
+                <td>{{ teacher.department.Department_name }}</td>
+                <td>{{ teacher.phone_number }}</td>
+                <td>{{ teacher.age }}</td>
+                <td>{{ teacher.address }}</td>
+                {% if user.is_staff %}
+                <td><a href="/teacher_del/{{teacher.id}}">Delete Staff</a></td>
+                {% endif %}
+
+            </tr>
+            {% endfor %}
+            <a href="/home/"><button>Back</button></a>
+        </tbody>
+    </table>
+</body>
+</html>

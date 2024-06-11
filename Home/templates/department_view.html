@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department_view</title>
+</head>
+<body style="text-align: -webkit-center;">
+    <h1 style="text-align: center;">View Department</h1>
+    <table border="1px" width="50%" >
+        <tr>
+            <th>Department Name</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in depnames %}
+        <tr>
+            <td>{{i.Department_name}}</td>
+            <td><a href="/dep_del/{{i.id}}">Delete</a></td>
+        </tr>
+
+        {% endfor %}
+    </table>
+    <a href="/home/"><button>Back</button></a>
+
+
+    
+</body>
+</html>
