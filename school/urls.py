@@ -38,7 +38,5 @@ urlpatterns = [
     path('edit_teacher/',views.edit_teacher),
     path('view_students_by_dep/<int:department_id>/',views.view_students_by_dep,name='view_students_by_dep'),
     path('view_teachers_by_dep/<int:department_id>/',views.view_teachers_by_dep,name='view_teachers_by_dep'),
-
-
-
+    path('generate-pdf/', views.generate_pdf, name='generate_pdf'),
 ]

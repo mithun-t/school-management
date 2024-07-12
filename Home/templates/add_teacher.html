@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Teacher</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 80%;
+        max-width: 500px;
+        margin: auto;
+      }
+
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Add Teacher</h1>
     <form action="" method="post">
-        {% csrf_token %}
-        {{user_form.as_p}}
-        {{teacher_form.as_p}}
-        <button type="Submit">Register Teacher</button>
+      {% csrf_token %} {{user_form.as_p}} {{teacher_form.as_p}}
+      <button type="submit">Register Teacher</button>
     </form>
     <a href="/home/"><button>Back</button></a>
-</body>
+  </body>
 </html>

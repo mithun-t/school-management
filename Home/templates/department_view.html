@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Department_view</title>
-</head>
-<body style="text-align: -webkit-center;">
-    <h1 style="text-align: center;">View Department</h1>
-    <table border="1px" width="50%" >
-        <tr>
-            <th>Department Name</th>
-            <th>Delete</th>
-        </tr>
-        {% for i in depnames %}
-        <tr>
-            <td>{{i.Department_name}}</td>
-            <td><a href="/dep_del/{{i.id}}">Delete</a></td>
-        </tr>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
 
-        {% endfor %}
+      h1 {
+        text-align: center;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>View Department</h1>
+    <table>
+      <tr>
+        <th>Department Name</th>
+        <th>Action</th>
+      </tr>
+      {% for i in depnames %}
+      <tr>
+        <td>{{i.Department_name}}</td>
+        <td><a href="/dep_del/{{i.id}}" style="color: red">Delete</a></td>
+      </tr>
+      {% endfor %}
     </table>
-    <a href="/home/"><button>Back</button></a>
-
-
-    
-</body>
+    <a href="/home/" style="margin-top: 20px"><button>Back</button></a>
+  </body>
 </html>
